@@ -9,14 +9,16 @@ import {Response} from "../models/Response";
 })
 export class GlobalService {
   cities$ =new BehaviorSubject([
-    {name:'Kahramanmaraş'},
-    {name:'Adıyaman'},
-    {name:'Hatay'},
-    {name:'Gaziantep'},
-    {name:'Şanlıurfa'},
-    {name:'Kilis'},
     {name:'Adana'},
-    {name:'Diyarbakır'}
+    {name:'Adıyaman'},
+    {name:'Diyarbakır'},
+    {name:'Gaziantep'},
+    {name:'Hatay'},
+    {name:'Kahramanmaraş'},
+    {name:'Kilis'},
+    {name:'Malatya'},
+    {name:'Osmaniye'},
+    {name:'Şanlıurfa'},
   ]);
   triggerLocation$ = new BehaviorSubject(null);
   constructor(
