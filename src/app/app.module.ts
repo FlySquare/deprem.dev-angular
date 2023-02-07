@@ -10,6 +10,7 @@ import {environment} from "../environments/environments";
 import {HttpClientModule} from "@angular/common/http";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
+import {RecaptchaModule} from "ng-recaptcha";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {FormsModule} from "@angular/forms";
     HttpClientModule,
     NgbModule,
     AppRoutingModule,
+    RecaptchaModule,
     FormsModule
   ],
   providers: [

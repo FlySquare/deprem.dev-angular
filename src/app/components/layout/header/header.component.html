@@ -10,6 +10,7 @@
       </div>
       <div class="modal-body">
         <form>
+          <p>Eğer sizde yardımda bulunmak istiyorsanız daha önce eklenmemiş alanları ekleyebilirsiniz!</p>
           <div class="form-group">
             <label for="name">Başlık (Zorunlu)</label>
             <input [(ngModel)]="locationForm.name" (keyup)="canAddValidate()" name="name" id="name" type="text" class="form-control"  placeholder="Başlık (Zorunlu)">
@@ -38,10 +39,14 @@
             <textarea [(ngModel)]="locationForm.address"  (keyup)="canAddValidate()" name="address" class="form-control" placeholder="Açık Adres" id="address" rows="3"></textarea>
           </div>
           <hr>
-          <div class="form-group">
+          <div class="form-group mb-3">
             <label for="google">Google Maps Link</label>
             <input [(ngModel)]="locationForm.google_maps_url" name="google_maps_url" id="google" type="text" class="form-control"  placeholder="Google Maps Link">
           </div>
+          <re-captcha
+            (resolved)="resolved($event)"
+            siteKey="6Ld4FWAkAAAAANWShLvfMoEmWQr0frEDqB_gcq1l"
+          ></re-captcha>
         </form>
       </div>
       <div class="modal-footer">

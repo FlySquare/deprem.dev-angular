@@ -17,8 +17,10 @@ export class HeaderComponent implements OnInit {
     address: '',
     city: '',
     state: '',
-    google_maps_url: ''
+    google_maps_url: '',
   }
+
+  reCAPTCHA = false;
 
   constructor(
     private modalService: NgbModal,
@@ -59,9 +61,14 @@ export class HeaderComponent implements OnInit {
     this.cantAdd = (!this.locationForm.name || this.locationForm.name.length < 4) ||
       (!this.locationForm.city || this.locationForm.city.length < 4) ||
       (!this.locationForm.state || this.locationForm.state.length < 2) ||
-      (!this.locationForm.address || this.locationForm.address.length < 6)
+      (!this.locationForm.address || this.locationForm.address.length < 6) ||
+      !this.reCAPTCHA
   }
 
+  resolved(captchaResponse: string) {
+    this.reCAPTCHA = true;
+    this.canAddValidate();
+  }
 
   openAddLocationModal(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
