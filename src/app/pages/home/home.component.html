@@ -1,0 +1,50 @@
+<div class="content">
+  <div class="locations">
+    <table class="table table-hover table-dark">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Başlık</th>
+        <th scope="col">Şehir</th>
+        <th scope="col">Google Maps</th>
+        <th scope="col">Detay</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let location of locations">
+        <th scope="row">{{ location.id }}</th>
+        <td>{{ location.name }}</td>
+        <td>{{ location.city }}/{{location.state}}</td>
+        <td>
+          <a *ngIf="location.google_maps_url" href="" class="btn btn-primary">Yol Tarifi</a>
+          <a *ngIf="!location.google_maps_url" href="javascript:void(0);" class="btn btn-danger">Yakında!</a>
+        </td>
+        <td>
+          <a href="javascript:void(0);" (click)="getLocationDetail(myModal,location)" class="btn btn-success">Detay Al</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #myModal let-modal>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">#{{locationDetail?.id}} Güvenli Alan Detayı</h5>
+        </div>
+        <div class="modal-body">
+          Başlık:  <strong>{{locationDetail?.name ?? 'YOK'}}</strong> <br>
+          Adres:  <strong>{{locationDetail?.address ?? 'YOK'}}</strong> <br>
+          Şehir:  <strong>{{locationDetail?.city ?? 'YOK'}}</strong>/ <strong>{{locationDetail?.state ?? 'YOK'}}</strong> <br>
+          Telefon: <strong>{{locationDetail?.phone ?? 'YOK'}}</strong>
+        </div>
+        <div class="modal-footer">
+          <button (click)="modal.dismiss()" type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+          <a *ngIf="locationDetail?.phone" href="tel:{{locationDetail?.phone}}" type="button" class="btn btn-danger">Telefonda Ara</a>
+          <a target="_blank" *ngIf="locationDetail?.google_maps_url" [href]="locationDetail?.google_maps_url" type="button" class="btn btn-primary">Haritada Aç</a>
+        </div>
+      </div>
+  </div>
+</ng-template>

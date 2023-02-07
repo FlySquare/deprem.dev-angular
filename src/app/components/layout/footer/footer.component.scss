@@ -1,0 +1,17 @@
+.footer{
+  h1{
+    font-size: 20px;
+    text-align: center;
+  }
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background: #212529;
+  width: calc(100vw - 40px);
+  margin: 20px auto auto auto;
+  color: white;
+  height: 50px;
+}
