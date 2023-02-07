@@ -58,8 +58,8 @@ export class HeaderComponent implements OnInit {
   canAddValidate() {
     this.cantAdd = (!this.locationForm.name || this.locationForm.name.length < 4) ||
       (!this.locationForm.city || this.locationForm.city.length < 4) ||
-      (!this.locationForm.state || this.locationForm.state.length < 4) ||
-      (!this.locationForm.address || this.locationForm.address.length < 4)
+      (!this.locationForm.state || this.locationForm.state.length < 2) ||
+      (!this.locationForm.address || this.locationForm.address.length < 6)
   }
 
 
