@@ -11,3 +11,8 @@
   width: 100%!important;
   height: 100%!important;
 }
+@media only screen and (max-width: 450px) {
+  .googleMaps{
+    display: none;
+  }
+}

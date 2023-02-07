@@ -19,19 +19,17 @@
     <table class="table table-hover table-dark mt-3">
       <thead>
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Başlık</th>
         <th scope="col">Şehir</th>
-        <th scope="col">Google Maps</th>
+        <th class="googleMaps" scope="col">Google Maps</th>
         <th scope="col">Detay</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let location of locations">
-        <th scope="row">{{ location.id }}</th>
         <td>{{ location.name }}</td>
         <td>{{ location.city }}/{{location.state}}</td>
-        <td>
+        <td class="googleMaps">
           <a target="_blank" *ngIf="location.google_maps_url" [href]="location.google_maps_url" href="" class="btn btn-primary">Yol Tarifi</a>
           <a *ngIf="!location.google_maps_url" href="javascript:void(0);" class="btn btn-danger">Yakında!</a>
         </td>
