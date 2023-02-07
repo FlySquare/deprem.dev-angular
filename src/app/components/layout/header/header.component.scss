@@ -1,7 +1,11 @@
 .header{
-  h1{
-    font-size: 20px;
-    text-align: center;
+  .title{
+    color: white;
+    text-decoration: none;
+    h1{
+      font-size: 20px;
+      text-align: center;
+    }
   }
   display: flex;
   flex-direction: row;
