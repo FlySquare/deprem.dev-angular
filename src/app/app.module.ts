@@ -11,13 +11,15 @@ import {HttpClientModule} from "@angular/common/http";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
 import {RecaptchaModule} from "ng-recaptcha";
+import { LinksComponent } from './pages/links/links.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    LinksComponent
   ],
   imports: [
     BrowserModule,

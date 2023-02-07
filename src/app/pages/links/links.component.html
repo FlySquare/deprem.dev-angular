@@ -1,0 +1,14 @@
+<div class="content">
+<div class="row">
+  <div *ngFor="let link of links" class="col">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ link.name }}</h5>
+        <p class="card-text">{{ link.desc }}</p>
+        <a target="_blank" href="{{link.link}}" class="btn btn-primary">Linke Git</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

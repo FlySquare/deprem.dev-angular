@@ -1,0 +1,15 @@
+.content{
+  .col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 10px 0;
+  }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}

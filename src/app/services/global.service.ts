@@ -3,6 +3,7 @@ import {ApiService} from "./api.service";
 import {BehaviorSubject, Observable, map} from "rxjs";
 import {Location} from "../models/Location";
 import {Response} from "../models/Response";
+import {Link} from "../models/Link";
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,13 @@ export class GlobalService {
     return this.apiService.get('/locations',data)
       .pipe(
         map((response: Response) => response.data.map((location: any) => new Location().prepare(location)))
+      );
+  }
+
+  getLinks(): Observable<Link[]> {
+    return this.apiService.get('/links')
+      .pipe(
+        map((response: Response) => response.data.map((link: any) => new Link().prepare(link)))
       );
   }
 

@@ -28,7 +28,7 @@
       <tbody>
       <tr *ngFor="let location of locations">
         <td>{{ location.name }}</td>
-        <td>{{ location.city }}/{{location.state}}</td>
+        <td>{{ location.city }} /<br>{{location.state}}</td>
         <td class="googleMaps">
           <a target="_blank" *ngIf="location.google_maps_url" [href]="location.google_maps_url" href="" class="btn btn-primary">Yol Tarifi</a>
           <a *ngIf="!location.google_maps_url" href="javascript:void(0);" class="btn btn-danger">Yakında!</a>
