@@ -1,3 +1,53 @@
 <div class="header">
   <h1>Acil Afet Barınma/Toplanma Alanları</h1>
+  <button (click)="openAddLocationModal(addModal)" class="btn btn-warning">Konum Ekle</button>
 </div>
+<ng-template #addModal let-modal>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Yeni Güvenli Alan Ekleyin</h5>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="name">Başlık (Zorunlu)</label>
+            <input [(ngModel)]="locationForm.name" (keyup)="canAddValidate()" name="name" id="name" type="text" class="form-control"  placeholder="Başlık (Zorunlu)">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="city">Şehir (Zorunlu)</label>
+            <select [(ngModel)]="locationForm.city"  (change)="canAddValidate()" name="city" class="form-control" id="city">
+              <option value="">--Lütfen şehir seçiniz--</option>
+              <option *ngFor="let city of cities;let i = index">{{ city.name }}</option>
+            </select>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="state">İlçe (Zorunlu)</label>
+            <input id="state"  (keyup)="canAddValidate()" name="state" [(ngModel)]="locationForm.state" type="text" class="form-control"  placeholder="İlçe (Zorunlu)">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input id="phone" name="phone" [(ngModel)]="locationForm.phone" type="text" class="form-control"  placeholder="Telefon">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="address">Açık Adres (Zorunlu)</label>
+            <textarea [(ngModel)]="locationForm.address"  (keyup)="canAddValidate()" name="address" class="form-control" placeholder="Açık Adres" id="address" rows="3"></textarea>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="google">Google Maps Link</label>
+            <input [(ngModel)]="locationForm.google_maps_url" name="google_maps_url" id="google" type="text" class="form-control"  placeholder="Google Maps Link">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button (click)="modal.dismiss()" type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        <button [disabled]="cantAdd" (click)="addLocation()" type="button" class="btn btn-success">Kaydet</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

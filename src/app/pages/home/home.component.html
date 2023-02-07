@@ -1,6 +1,22 @@
 <div class="content">
   <div class="locations">
-    <table class="table table-hover table-dark">
+    <div class="row">
+      <h4>Filtre</h4>
+      <div class="col-12 col-md-6 mt-1 mb-1">
+        <div class="form-group">
+          <input type="text" (keyup)="filter()" [(ngModel)]="filterParams.query" class="form-control"  placeholder="Başlık - İlçe - Adres Arayın">
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mt-1 mb-1">
+        <div class="form-group">
+          <select [(ngModel)]="filterParams.city"  (change)="filter()" name="city" class="form-control" id="city">
+            <option value="">--Lütfen şehir seçiniz--</option>
+            <option *ngFor="let city of cities;let i = index">{{ city.name }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <table class="table table-hover table-dark mt-3">
       <thead>
       <tr>
         <th scope="col">#</th>
@@ -16,11 +32,11 @@
         <td>{{ location.name }}</td>
         <td>{{ location.city }}/{{location.state}}</td>
         <td>
-          <a *ngIf="location.google_maps_url" href="" class="btn btn-primary">Yol Tarifi</a>
+          <a target="_blank" *ngIf="location.google_maps_url" [href]="location.google_maps_url" href="" class="btn btn-primary">Yol Tarifi</a>
           <a *ngIf="!location.google_maps_url" href="javascript:void(0);" class="btn btn-danger">Yakında!</a>
         </td>
         <td>
-          <a href="javascript:void(0);" (click)="getLocationDetail(myModal,location)" class="btn btn-success">Detay Al</a>
+          <a href="javascript:void(0);" (click)="getLocationDetail(locationModal,location)" class="btn btn-success">Detay Al</a>
         </td>
       </tr>
       </tbody>
@@ -28,7 +44,7 @@
   </div>
 </div>
 
-<ng-template #myModal let-modal>
+<ng-template #locationModal let-modal>
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

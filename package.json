@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy:prod": "ng build && scp ./dist/frontend/* root@165.227.170.18:/var/www/deprem.dev"
   },
   "private": true,
   "dependencies": {

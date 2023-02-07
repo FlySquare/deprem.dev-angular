@@ -4,14 +4,23 @@
     text-align: center;
   }
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-content: center;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background: #212529;
   width: calc(100vw - 40px);
   margin: 20px auto auto auto;
   color: white;
-  height: 50px;
+  padding: 15px;
+}
+
+.modal-dialog{
+  padding: unset!important;
+  margin: unset!important;
+}
+.modal-content{
+  width: 100%!important;
+  height: 100%!important;
 }

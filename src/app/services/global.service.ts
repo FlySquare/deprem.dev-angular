@@ -8,13 +8,27 @@ import {Response} from "../models/Response";
   providedIn: 'root'
 })
 export class GlobalService {
+  cities$ =new BehaviorSubject([
+    {name:'Kahramanmaraş'},
+    {name:'Adıyaman'},
+    {name:'Hatay'},
+    {name:'Gaziantep'},
+    {name:'Şanlıurfa'},
+    {name:'Kilis'},
+    {name:'Adana'},
+    {name:'Diyarbakır'}
+  ]);
+  triggerLocation$ = new BehaviorSubject(null);
   constructor(
     private apiService: ApiService,
-
   ) { }
 
-  getLocations(): Observable<Location[]> {
-    return this.apiService.get('/locations')
+  updateTrigger(){
+    this.triggerLocation$.next(new Date());
+  }
+
+  getLocations(data?:any): Observable<Location[]> {
+    return this.apiService.get('/locations',data)
       .pipe(
         map((response: Response) => response.data.map((location: any) => new Location().prepare(location)))
       );
